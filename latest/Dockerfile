@@ -32,7 +32,7 @@ RUN pip install ipython-sql jupyterlab_sql psycopg2 \
     && jupyter lab build
 
 # Testing MY OWN STUFF ADDED TO IMAGE
-RUN conda install -y -c bioconda samtools
+RUN conda install -y -c bioconda samtools \
     && pip install lolcat 
 
 # install the irods plugin for jupyter lab -- non-functional beyond JupyterLab v1.0.9
