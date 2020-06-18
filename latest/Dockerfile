@@ -31,6 +31,10 @@ RUN pip install ipython-sql jupyterlab_sql psycopg2 \
     && jupyter serverextension enable jupyterlab_sql --py --sys-prefix \
     && jupyter lab build
 
+# Testing MY OWN STUFF ADDED TO IMAGE
+RUN conda install -y -c bioconda samtools
+    && pip install lolcat 
+
 # install the irods plugin for jupyter lab -- non-functional beyond JupyterLab v1.0.9
 #RUN pip install jupyterlab_irods==3.0.2 \
 #    && jupyter serverextension enable --py jupyterlab_irods \
