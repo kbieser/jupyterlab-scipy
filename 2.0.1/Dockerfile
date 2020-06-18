@@ -21,6 +21,10 @@ RUN apt-get update && apt-get install -y \
     software-properties-common \
     vim
     
+# Install stuff to test that i can edit these dockerfiles
+RUN conda install -y -c bioconda samtools \
+    && pip install lolcat
+
 # Install iCommands
 RUN wget https://files.renci.org/pub/irods/releases/4.1.12/ubuntu14/irods-icommands-4.1.12-ubuntu14-x86_64.deb && \
     dpkg -i irods-icommands-4.1.12-ubuntu14-x86_64.deb && \
