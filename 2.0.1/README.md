@@ -42,3 +42,22 @@ To test the container locally:
 ```
 docker run -it --rm -v /$HOME:/app --workdir /app -p 8888:8888 -e REDIRECT_URL=http://localhost:8888 cyversevice/jupyterlab-scipy:latest
 ```
+
+To test **THIS** container locally:
+
+```
+docker pull rltillett/jupytests:jupylol
+docker images
+docker run -it --rm -v /$HOME:/app --workdir /app -p 8888:8888 \
+-e REDIRECT_URL=http://localhost:8888 \
+--name lolololol rltillett/jupytests:jupylol
+```
+
+Then use a web browser to navigate to [http://localhost:8888](http://localhost:8888) 
+and see if notebooks, the jupyter terminal, and most imporantly, test that `lolcat` works.
+
+To test lolcat, open up the jupyter terminal and run a command such as
+
+```
+grep --help | lolcat
+```
