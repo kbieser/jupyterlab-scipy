@@ -46,11 +46,11 @@ docker run -it --rm -v /$HOME:/app --workdir /app -p 8888:8888 -e REDIRECT_URL=h
 To test **The autobuild** container locally:
 
 ```
-docker pull rltillett/jupytests:jupylol
+docker pull rltillett/jupyterlab-scipy:auto
 docker images
 docker run -it --rm -v /$HOME:/app --workdir /app -p 8888:8888 \
 -e REDIRECT_URL=http://localhost:8888 \
---name lolololol rltillett/jupytests:jupylol
+--name autolab rltillett/jupyterlab-scipy:auto
 ```
 
 Then use a web browser to navigate to [http://localhost:8888](http://localhost:8888) 
@@ -61,6 +61,7 @@ To test lolcat, open up the jupyter terminal and run a command such as
 ```
 grep --help | lolcat
 ```
+
 #### Manual building of this image on your machine
 
 1. Fork this repo on your own github account
@@ -85,7 +86,7 @@ docker pull rltillett/jupytests:jupylol
 docker images
 docker run -it --rm -v /$HOME:/app --workdir /app -p 8888:8888 \
 -e REDIRECT_URL=http://localhost:8888 \
---name lolololol rltillett/jupytests:jupylol
+--name autolol rltillett/jupyterlab-scipy:auto
 ```
 
 Then use a web browser to navigate to [http://localhost:8888](http://localhost:8888)
