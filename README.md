@@ -43,7 +43,7 @@ To test the container locally:
 docker run -it --rm -v /$HOME:/app --workdir /app -p 8888:8888 -e REDIRECT_URL=http://localhost:8888 cyversevice/jupyterlab-scipy:latest
 ```
 
-To test **THIS** container locally:
+To test **The autobuild** container locally:
 
 ```
 docker pull rltillett/jupytests:jupylol
@@ -54,6 +54,41 @@ docker run -it --rm -v /$HOME:/app --workdir /app -p 8888:8888 \
 ```
 
 Then use a web browser to navigate to [http://localhost:8888](http://localhost:8888) 
+and see if notebooks, the jupyter terminal, and most imporantly, test that `lolcat` works.
+
+To test lolcat, open up the jupyter terminal and run a command such as
+
+```
+grep --help | lolcat
+```
+#### Manual building of this image on your machine
+
+1. Fork this repo on your own github account
+2. Run the code below, but replace all `rltillett` with your github user name
+
+```
+git clone https://github.com/rltillett/jupyterlab-scipy.git
+cd jupyterlab-scipy/
+docker images # check that nothing with the following build tag already exists
+docker build --no-cache --tag rltillett/jupyterlab-scipy:manual .
+docker images # see that this new one exists and can run
+
+docker run -it --rm -v /$HOME:/app --workdir /app -p 8888:8888 -e REDIRECT_URL=http://localhost:8888 \
+--name jupman rltillett/jupyterlab-scipy:manual
+```
+
+#### Auto-built (at my dockerhub) testing instructions
+To test **The autobuild** container locally:
+
+```
+docker pull rltillett/jupytests:jupylol
+docker images
+docker run -it --rm -v /$HOME:/app --workdir /app -p 8888:8888 \
+-e REDIRECT_URL=http://localhost:8888 \
+--name lolololol rltillett/jupytests:jupylol
+```
+
+Then use a web browser to navigate to [http://localhost:8888](http://localhost:8888)
 and see if notebooks, the jupyter terminal, and most imporantly, test that `lolcat` works.
 
 To test lolcat, open up the jupyter terminal and run a command such as
